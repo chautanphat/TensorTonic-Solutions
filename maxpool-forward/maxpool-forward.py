@@ -7,8 +7,8 @@ def maxpool_forward(X, pool_size, stride):
     X = np.asarray(X)
     H, W = X.shape
     
-    H_out = (np.floor((H - pool_size) / stride) + 1).astype(int)
-    W_out = (np.floor((W - pool_size) / stride) + 1).astype(int)
+    H_out = (H - pool_size) // stride + 1
+    W_out = (W - pool_size) // stride + 1
 
     out = np.zeros((H_out, W_out))
     for i in range(H_out):
