@@ -11,7 +11,6 @@ def maxpool_forward(X, pool_size, stride):
     W_out = (W - pool_size) // stride + 1
 
     out = np.zeros((H_out, W_out))
-    print(out)
     for i in range(H_out):
         for j in range(W_out):
             out[i, j] = np.max(X[i*stride:i*stride+pool_size, j*stride:j*stride+pool_size])
