@@ -8,7 +8,7 @@ def chi2_independence(C):
     col_sums = np.sum(C, axis=0, keepdims=True)
     total_sum = np.sum(C)
 
-    expected = (row_sums @ col_sums) / total_sum
+    expected = np.outer(row_sums, col_sums) / total_sum
     chi2_stat = np.sum((C - expected) ** 2 / expected)
 
     return chi2_stat, expected
